@@ -3,6 +3,7 @@
 ## Contexte
 
 Pour poursuivre sur l'excellent kata de William, voici quelques variations sur le même thème, à savoir travailler avec des fichiers `yaml` pour les lire et travailler dessus, avec de la récursivité. 
+
 Comme d'habitude ~si vous même ou un membre de votre équipe était pris~, c'est une invitation à faire du TDD et à écrire des tests !
 
 
@@ -38,12 +39,6 @@ fr:
 Créer une méthode pour lire chaque fichier et le stocker dans un `Hash`.
 
 :cactus : Pour pimenter, utilisez la méthode `each_with_object` avec un tableau vide en argument pour lire tous les fichiers présents dans un répertoire et stocker le tout dans un `Array` de `Hash`.
-
-Comme d'habitude, ~~si vous-même ou un membre de votre équipe était capturé, le Département d'Etat nierait toute implication~~ 
-
-ça serait une bonne idée
-
-de faire du TDD (et ça rime en plus, on vous gâte trop)
 
 Créer une seconde méthode qui prend un `Hash` en entrée et retourne la clé 'langue', ici `fr` et `en` pour ceux qui ne suivent pas !
 
