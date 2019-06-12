@@ -6,6 +6,7 @@ Pour poursuivre sur l'excellent kata de William, voici quelques variations sur l
 
 Comme d'habitude ~si vous même ou un membre de votre équipe était pris le Département d'Etat nierait toute implication~, c'est une invitation à faire du TDD et à écrire des tests !
 
+Un petit conseil, travailler d'abord sur des petits fichers YAML, en copiant par exemple ceux ci-dessous et en les sauvegardant en tant que fichiers
 
 Donc vous avez toujours des fichiers `yaml`, un par 'locale':
 ```yaml
