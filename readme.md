@@ -1,10 +1,12 @@
 # Yaml to JSON
 
-## Context
+## Contexte
 
-A Ruby on Rails based company decides to change its translations engine.
+Pour poursuivre sur l'excellent kata de William, voici quelques variations sur le même thème, à savoir travailler avec des fichiers `yaml` pour les lire et travailler dessus, avec de la récursivité. 
+Comme d'habitude ~si vous même ou un membre de votre équipe était pris~, c'est une invitation à faire du TDD et à écrire des tests !
 
-The actual engine works with translations stored in `yaml` files, one file per locale:
+
+Donc vous avez toujours des fichiers `yaml`, un par 'locale':
 ```yaml
 # en.yaml
 en:
@@ -32,46 +34,65 @@ fr:
       account_changed: 'votre compte a bien été modifié'
 ```
 
-It would like to switch to a `JSON` storage format, with concatenated keys:
-```json
-{
-  "admin.create.success": {
-    "fr": "administrateur créé avec succès",
-    "en": "admin successfully created"
-  },
-  "admin.create.failure": {
-    "fr": "administrateur n'a pas pu être créé",
-    "en": "failure to create the admin"
-  },
-  "project.create": {
-    "fr": null,
-    "en": null
-  },
-  "project.change_amount.success": {
-    "fr": "le montant de votre projet a été modifié",
-    "en": "the amount of your project has been modified"
-  },
-  "user.notify.account_changed": {
-    "fr": "votre compte a bien été modifié",
-    "en": null
-  }
-}
+## Echauffement
+Créer une méthode pour lire chaque fichier et le stocker dans un `Hash`.
+
+:cactus : Pour pimenter, utilisez la méthode `each_with_object` avec un tableau vide en argument pour lire tous les fichiers présents dans un répertoire et stocker le tout dans un `Array` de `Hash`.
+
+Comme d'habitude, ~~si vous-même ou un membre de votre équipe était capturé, le Département d'Etat nierait toute implication~~ 
+
+ça serait une bonne idée
+
+de faire du TDD (et ça rime en plus, on vous gâte trop)
+
+Créer une seconde méthode qui prend un `Hash` en entrée et retourne la clé 'langue', ici `fr` et `en` pour ceux qui ne suivent pas !
+
+## Premier kata (l'apéro)
+
+Vous allez écrire une méthode qui prend en entrée un `Hash` et renvoie un `Array` contenant toutes les clés de manière unique, du genre pour l'exemple:
+
+```ruby  
+["fr", "admin", "create", "success", "failure", "project", "change_amount", "user", "notify", "account_changed"]
+```
+:cactus: pour pimenter un peu et pour ceux qui le veulent, puisqu'on veut les clés autant itérer sur les valeurs pour être logique (!), avec une ligne du genre (hash étant l'argument de la méthode)
+
+```ruby  
+hash.values.each do |key, value|
+```
+## Second kata (le hors d'oeuvre)
+
+Vous allez écrire une méthode qui prend en entrée un `Hash` et retourne un `Array` contenant toutes les 'valeurs' de manière unique, `nil` compris si c'est une des valeurs, du genre pour l'exemple avec `fr`:
+
+```ruby 
+["administrateur créé avec succès", "administrateur n'a pas pu être créé", nil, "le montant de votre projet a été modifié", "votre compte a bien été modifié"]
 ```
 
-This new format repeats several times the locales, but it presents the following advantages:
- - it becomes possible to search for a translation from the unique key
- - the missing translations are quicker to spot
- - as the translations for one key are gathered in one place, it is not necessary to browse several files to translate a value in every languages
+## Troisième Kata (le plat principal)
 
-## Exercise
+Vous allez écrire une méthode qui prend (au moins) en entrée une chaîne de caractères comme celles du résultat ci-dessus, par exemple
+"votre compte a bien été modifié" et renvoie le 'chemin', l'enchaînement de clés menant à cette valeur, ici fr ->user->notify->account_changed, sous la forme que vous voulez: un tableau de chaînes ou de symboles, une chaîne unique avec les clés concaténées, une liste chaînée, une file FIFO, une pile LIFO, ou que sais-je encore, c'est vous qui voyez ! 
 
-When the translation file is consequent (several thousands lines), and the number of languages is high, it can be painful to migrate without automation.
+Vous pouvez aussi passé le Hash en paramètre si vous voulez.
 
-Would you be able to write a script to automate the work ? A test driven approach is advised ! You will find a test set with large translations files in the `test_set` repository
+## ou (menu au choix!)
+Et si vous n'y arrivez pas, ou si vous avez déjà fini et encore fain de Ruby, voici un autre exercice du même genre: écrivez une méthode nommée deep_invert qui fait pareil que `Hash#invert` mais récursivement, pour inverser entièrement un hash, un peu comme le deep_merge, nommé dans les tips ci-dessous, le fait pour le `Hash#merge`
+
+## quatrième kata (le dessert)
+
+Maintenant, vous devriez être plus à l'aise pour reprendre l'excellent Kata de William [yaml_to_json](https://github.com/williampollet/yaml_to_json_kata)
+
+## cinquième Kata (le café et l'addition !)
+
+Vous allez manger de la pizza tout en buvant des boissons, vous l'avez bien mérité, et William et moi aussi :-)
+
 
 ## Tips
 
-This section is optional. It presents several technical functions that will help you trough the exercise.
+Comme je suis un feignant, j'ai repris la partie tips du sujet de William, surtout qu'elle est bien faite !
+
+Sans même la traduire, un feignant je vous dis ;-)
+
+This section is optional. It presents several technical functions that will help you through the exercise.
 
 <details>
 
@@ -107,5 +128,6 @@ Algorithms tips:
 
 ## Credits
 
+* Thanks to [William](https://github.com/williampollet/yaml_to_json_kata) pour l'idée originelle et originale, et pour son aide en tant qu'orga !
 * Thanks to [LaLibertad](https://github.com/lalibertad) for providing the translations [test set](https://github.com/lalibertad/consul/tree/master/config/locales)
 * Thanks to [sunny](https://github.com/sunny) for the design of the flat translation format
