@@ -4,7 +4,7 @@
 
 Pour poursuivre sur l'excellent kata de William, voici quelques variations sur le même thème, à savoir travailler avec des fichiers `yaml` pour les lire et travailler dessus, avec de la récursivité. 
 
-Comme d'habitude ~si vous même ou un membre de votre équipe était pris~, c'est une invitation à faire du TDD et à écrire des tests !
+Comme d'habitude ~si vous même ou un membre de votre équipe était pris le Département d'Etat nierait toute implication~, c'est une invitation à faire du TDD et à écrire des tests !
 
 
 Donc vous avez toujours des fichiers `yaml`, un par 'locale':
