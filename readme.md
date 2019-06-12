@@ -39,7 +39,7 @@ fr:
 ## Echauffement
 Créer une méthode pour lire chaque fichier et le stocker dans un `Hash`.
 
-:cactus : Pour pimenter, utilisez la méthode `each_with_object` avec un tableau vide en argument pour lire tous les fichiers présents dans un répertoire et stocker le tout dans un `Array` de `Hash`.
+:cactus: Pour pimenter, utilisez la méthode `each_with_object` avec un tableau vide en argument pour lire tous les fichiers présents dans un répertoire et stocker le tout dans un `Array` de `Hash`.
 
 Créer une seconde méthode qui prend un `Hash` en entrée et retourne la clé 'langue', ici `fr` et `en` pour ceux qui ne suivent pas !
 
